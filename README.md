@@ -40,7 +40,7 @@ Training episodes come first, then 9 held-out test episodes (source episodes 4, 
 
 ## Limits
 
-- Only the arms and the object being picked up move. The other objects stay where they start, so an object the real arm bumps or knocks over stays put here. About 1 in 10 of those objects may start somewhere other than where it was in the recording.
+- Only the arms and the object being picked up move. The other objects stay where they start, so an object the real arm bumps or knocks over stays put here. About 1 in 20 of those objects may start somewhere other than where it was in the recording.
 - The object is held rigidly from the moment it's grasped until it's let go, then falls under simulated physics, so how it settles in the tray can differ from the recording.
 - The cables bend with the arms but don't swing.
 - Two of the recordings (source episodes 69 and 74) are failed attempts, and they stay failed here. `in_tray_recorded` in `meta/provenance.json` marks them.
