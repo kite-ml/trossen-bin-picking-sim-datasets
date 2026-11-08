@@ -4,9 +4,9 @@ Seven datasets that replay Trossen Robotics' public `bin_picking` recordings on 
 
 Each episode follows one recording. The joint states, actions, timing and task text are the recording's, unchanged, and the four cameras are rendered from the real cameras' viewpoints. In 92 of the 99 recordings we could check, the object ends up where it did in the recording, in the tray or not. The datasets leave out the 7 that don't, plus source episode 66, which wasn't rendered, so each one has 92 episodes.
 
-![All conditions, overhead camera](docs/variants.png)
+![All seven datasets, overhead camera](docs/variants.png)
 
-The same episode from each camera, with the recording in the top-left tile: [overhead](docs/preview_camera_high.mp4), [low front](docs/preview_camera_low.mp4), [left wrist](docs/preview_camera_left_wrist.mp4) and [right wrist](docs/preview_camera_right_wrist.mp4). The preview tile called "Room light" is the `baseline` dataset.
+[Watch all seven playing together](docs/preview.mp4) on the overhead camera, and [the same episode from all four cameras](docs/cameras.mp4) in `baseline`.
 
 ## Datasets
 
