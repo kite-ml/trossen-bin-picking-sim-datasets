@@ -4,8 +4,6 @@ Seven datasets that replay Trossen Robotics' public `bin_picking` recordings on 
 
 Each episode follows one recording. The joint states, actions, timing and task text are the recording's, unchanged, and the four cameras are rendered from the real cameras' viewpoints. In 92 of the 99 recordings we could check, the object ends up where it did in the recording, in the tray or not. The datasets leave out the 7 that don't, plus source episode 66, which wasn't rendered, so each one has 92 episodes.
 
-Uploads are in progress. Episodes are added to each dataset as they finish rendering, so the datasets are smaller than 92 episodes until then.
-
 ![All conditions, overhead camera](docs/variants.png)
 
 The same episode from each camera, with the recording in the top-left tile: [overhead](docs/preview_camera_high.mp4), [low front](docs/preview_camera_low.mp4), [left wrist](docs/preview_camera_left_wrist.mp4) and [right wrist](docs/preview_camera_right_wrist.mp4). The preview tile called "Room light" is the `baseline` dataset.
@@ -43,6 +41,7 @@ Training episodes come first, then 8 held-out test episodes (source episodes 4, 
 - Only the arms and the object being picked up move. The other objects stay where they start, so an object the real arm bumps or knocks over stays put here. About 1 in 20 of those objects may start somewhere other than where it was in the recording.
 - The gripper's fingers close until they touch the object. The object is then held rigidly until it's let go, and falls under simulated physics, so how it settles in the tray can differ from the recording.
 - In about 3 in 100 frames where an object is held, a finger sinks more than 3 mm into it, most often into the roll of tape.
+- In two renders the clear tray turns solid black for a moment: frames 139 to 166 of episode 75 in `warm` (source episode 89), and 3 frames between 223 and 282 of episode 83 in `fluorescent` (source episode 99).
 - The cables bend with the arms but don't swing.
 - Two of the recordings (source episodes 69 and 74) are failed attempts, and they stay failed here. `in_tray_recorded` in `meta/provenance.json` marks them.
 - Simulation only. Nothing here has been tested on a real robot.
