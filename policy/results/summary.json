@@ -2,6 +2,7 @@
  "tests": [
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "placed": 8,
    "runs": 20,
@@ -19,6 +20,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "placed": 2,
    "runs": 20,
@@ -37,11 +39,12 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "placed": 0,
    "runs": 20,
    "ci95": [
-    0,
+    0.0,
     0.161
    ],
    "placed_by_layout": {
@@ -54,6 +57,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "placed": 8,
    "runs": 20,
@@ -71,6 +75,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "placed": 2,
    "runs": 20,
@@ -89,6 +94,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "placed": 2,
    "runs": 20,
@@ -107,6 +113,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "placed": 1,
    "runs": 20,
@@ -125,11 +132,12 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "placed": 0,
    "runs": 20,
    "ci95": [
-    0,
+    0.0,
     0.161
    ],
    "placed_by_layout": {
@@ -140,37 +148,186 @@
     "never lifted the cup": 18,
     "lifted the cup, not in the tray at the end": 2
    }
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "placed": 8,
+   "runs": 20,
+   "ci95": [
+    0.219,
+    0.613
+   ],
+   "placed_by_layout": {
+    "episode_4": 8,
+    "episode_14": 0
+   },
+   "misses": {
+    "never lifted the cup": 10,
+    "lifted the cup, not in the tray at the end": 2
+   }
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "placed": 3,
+   "runs": 20,
+   "ci95": [
+    0.052,
+    0.36
+   ],
+   "placed_by_layout": {
+    "episode_4": 3,
+    "episode_14": 0
+   },
+   "misses": {
+    "never lifted the cup": 12,
+    "lifted the cup, not in the tray at the end": 5
+   }
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "placed": 4,
+   "runs": 20,
+   "ci95": [
+    0.081,
+    0.416
+   ],
+   "placed_by_layout": {
+    "episode_4": 4,
+    "episode_14": 0
+   },
+   "misses": {
+    "never lifted the cup": 12,
+    "lifted the cup, not in the tray at the end": 4
+   }
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "placed": 3,
+   "runs": 20,
+   "ci95": [
+    0.052,
+    0.36
+   ],
+   "placed_by_layout": {
+    "episode_4": 3,
+    "episode_14": 0
+   },
+   "misses": {
+    "lifted the cup, not in the tray at the end": 5,
+    "never lifted the cup": 12
+   }
   }
  ],
  "paired": [
   {
    "test": "normal",
-   "only_baseline_placed": 6,
-   "only_all_seven_placed": 0,
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 30,000 steps",
+   "only_a_placed": 6,
+   "only_b_placed": 0,
    "exact_mcnemar_p": 0.031
   },
   {
    "test": "low_light",
-   "only_baseline_placed": 1,
-   "only_all_seven_placed": 1,
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 30,000 steps",
+   "only_a_placed": 1,
+   "only_b_placed": 1,
    "exact_mcnemar_p": 1.0
   },
   {
    "test": "warm_light",
-   "only_baseline_placed": 0,
-   "only_all_seven_placed": 1,
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 30,000 steps",
+   "only_a_placed": 0,
+   "only_b_placed": 1,
    "exact_mcnemar_p": 1.0
   },
   {
    "test": "extra_objects",
-   "only_baseline_placed": 8,
-   "only_all_seven_placed": 0,
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 30,000 steps",
+   "only_a_placed": 8,
+   "only_b_placed": 0,
    "exact_mcnemar_p": 0.008
+  },
+  {
+   "test": "normal",
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 2,
+   "only_b_placed": 2,
+   "exact_mcnemar_p": 1.0
+  },
+  {
+   "test": "low_light",
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 2,
+   "only_b_placed": 3,
+   "exact_mcnemar_p": 1.0
+  },
+  {
+   "test": "warm_light",
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 0,
+   "only_b_placed": 4,
+   "exact_mcnemar_p": 0.125
+  },
+  {
+   "test": "extra_objects",
+   "a": "baseline, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 5,
+   "only_b_placed": 0,
+   "exact_mcnemar_p": 0.062
+  },
+  {
+   "test": "normal",
+   "a": "all seven, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 0,
+   "only_b_placed": 6,
+   "exact_mcnemar_p": 0.031
+  },
+  {
+   "test": "low_light",
+   "a": "all seven, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 2,
+   "only_b_placed": 3,
+   "exact_mcnemar_p": 1.0
+  },
+  {
+   "test": "warm_light",
+   "a": "all seven, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 1,
+   "only_b_placed": 4,
+   "exact_mcnemar_p": 0.375
+  },
+  {
+   "test": "extra_objects",
+   "a": "all seven, 30,000 steps",
+   "b": "all seven, 90,000 steps",
+   "only_a_placed": 0,
+   "only_b_placed": 3,
+   "exact_mcnemar_p": 0.25
   }
  ],
  "episodes": [
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 0,
    "layout_episode": 4,
@@ -183,6 +340,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 1,
    "layout_episode": 4,
@@ -195,6 +353,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 2,
    "layout_episode": 14,
@@ -207,6 +366,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 3,
    "layout_episode": 4,
@@ -219,6 +379,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 4,
    "layout_episode": 14,
@@ -231,6 +392,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 5,
    "layout_episode": 14,
@@ -243,6 +405,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 6,
    "layout_episode": 14,
@@ -255,6 +418,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 7,
    "layout_episode": 4,
@@ -267,6 +431,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 8,
    "layout_episode": 14,
@@ -279,6 +444,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 9,
    "layout_episode": 14,
@@ -291,6 +457,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 10,
    "layout_episode": 4,
@@ -303,6 +470,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 11,
    "layout_episode": 4,
@@ -315,6 +483,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 12,
    "layout_episode": 4,
@@ -327,6 +496,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 13,
    "layout_episode": 4,
@@ -339,6 +509,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 14,
    "layout_episode": 14,
@@ -351,6 +522,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 15,
    "layout_episode": 14,
@@ -363,6 +535,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 16,
    "layout_episode": 4,
@@ -375,6 +548,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 17,
    "layout_episode": 14,
@@ -387,6 +561,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 18,
    "layout_episode": 4,
@@ -399,6 +574,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "normal",
    "run": 19,
    "layout_episode": 14,
@@ -411,6 +587,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 0,
    "layout_episode": 4,
@@ -423,6 +600,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 1,
    "layout_episode": 4,
@@ -435,6 +613,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 2,
    "layout_episode": 14,
@@ -447,6 +626,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 3,
    "layout_episode": 4,
@@ -459,6 +639,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 4,
    "layout_episode": 14,
@@ -471,6 +652,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 5,
    "layout_episode": 14,
@@ -483,6 +665,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 6,
    "layout_episode": 14,
@@ -495,6 +678,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 7,
    "layout_episode": 4,
@@ -507,6 +691,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 8,
    "layout_episode": 14,
@@ -519,6 +704,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 9,
    "layout_episode": 14,
@@ -531,6 +717,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 10,
    "layout_episode": 4,
@@ -543,6 +730,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 11,
    "layout_episode": 4,
@@ -555,6 +743,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 12,
    "layout_episode": 4,
@@ -567,6 +756,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 13,
    "layout_episode": 4,
@@ -579,6 +769,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 14,
    "layout_episode": 14,
@@ -591,6 +782,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 15,
    "layout_episode": 14,
@@ -603,6 +795,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 16,
    "layout_episode": 4,
@@ -615,6 +808,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 17,
    "layout_episode": 14,
@@ -627,6 +821,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 18,
    "layout_episode": 4,
@@ -639,6 +834,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "low_light",
    "run": 19,
    "layout_episode": 14,
@@ -651,6 +847,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 0,
    "layout_episode": 4,
@@ -663,6 +860,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 1,
    "layout_episode": 4,
@@ -675,6 +873,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 2,
    "layout_episode": 14,
@@ -687,6 +886,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 3,
    "layout_episode": 4,
@@ -699,6 +899,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 4,
    "layout_episode": 14,
@@ -711,6 +912,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 5,
    "layout_episode": 14,
@@ -723,6 +925,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 6,
    "layout_episode": 14,
@@ -735,6 +938,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 7,
    "layout_episode": 4,
@@ -747,6 +951,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 8,
    "layout_episode": 14,
@@ -759,6 +964,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 9,
    "layout_episode": 14,
@@ -771,6 +977,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 10,
    "layout_episode": 4,
@@ -783,6 +990,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 11,
    "layout_episode": 4,
@@ -795,6 +1003,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 12,
    "layout_episode": 4,
@@ -807,6 +1016,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 13,
    "layout_episode": 4,
@@ -819,6 +1029,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 14,
    "layout_episode": 14,
@@ -831,6 +1042,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 15,
    "layout_episode": 14,
@@ -843,6 +1055,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 16,
    "layout_episode": 4,
@@ -855,6 +1068,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 17,
    "layout_episode": 14,
@@ -867,6 +1081,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 18,
    "layout_episode": 4,
@@ -879,6 +1094,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "warm_light",
    "run": 19,
    "layout_episode": 14,
@@ -891,6 +1107,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 0,
    "layout_episode": 4,
@@ -903,6 +1120,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 1,
    "layout_episode": 4,
@@ -915,6 +1133,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 2,
    "layout_episode": 14,
@@ -927,6 +1146,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 3,
    "layout_episode": 4,
@@ -939,6 +1159,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 4,
    "layout_episode": 14,
@@ -951,6 +1172,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 5,
    "layout_episode": 14,
@@ -963,6 +1185,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 6,
    "layout_episode": 14,
@@ -975,6 +1198,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 7,
    "layout_episode": 4,
@@ -987,6 +1211,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 8,
    "layout_episode": 14,
@@ -999,6 +1224,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 9,
    "layout_episode": 14,
@@ -1011,6 +1237,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 10,
    "layout_episode": 4,
@@ -1023,6 +1250,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 11,
    "layout_episode": 4,
@@ -1035,6 +1263,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 12,
    "layout_episode": 4,
@@ -1047,6 +1276,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 13,
    "layout_episode": 4,
@@ -1059,6 +1289,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 14,
    "layout_episode": 14,
@@ -1071,6 +1302,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 15,
    "layout_episode": 14,
@@ -1083,6 +1315,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 16,
    "layout_episode": 4,
@@ -1095,6 +1328,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 17,
    "layout_episode": 14,
@@ -1107,6 +1341,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 18,
    "layout_episode": 4,
@@ -1119,6 +1354,7 @@
   },
   {
    "trained_on": "baseline",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 19,
    "layout_episode": 14,
@@ -1131,6 +1367,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 0,
    "layout_episode": 4,
@@ -1143,6 +1380,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 1,
    "layout_episode": 4,
@@ -1155,6 +1393,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 2,
    "layout_episode": 14,
@@ -1167,6 +1406,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 3,
    "layout_episode": 4,
@@ -1179,6 +1419,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 4,
    "layout_episode": 14,
@@ -1191,6 +1432,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 5,
    "layout_episode": 14,
@@ -1203,6 +1445,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 6,
    "layout_episode": 14,
@@ -1215,6 +1458,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 7,
    "layout_episode": 4,
@@ -1227,6 +1471,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 8,
    "layout_episode": 14,
@@ -1239,6 +1484,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 9,
    "layout_episode": 14,
@@ -1251,6 +1497,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 10,
    "layout_episode": 4,
@@ -1263,6 +1510,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 11,
    "layout_episode": 4,
@@ -1275,6 +1523,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 12,
    "layout_episode": 4,
@@ -1287,6 +1536,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 13,
    "layout_episode": 4,
@@ -1299,6 +1549,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 14,
    "layout_episode": 14,
@@ -1311,6 +1562,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 15,
    "layout_episode": 14,
@@ -1323,6 +1575,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 16,
    "layout_episode": 4,
@@ -1335,6 +1588,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 17,
    "layout_episode": 14,
@@ -1347,6 +1601,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 18,
    "layout_episode": 4,
@@ -1359,6 +1614,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "normal",
    "run": 19,
    "layout_episode": 14,
@@ -1371,6 +1627,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 0,
    "layout_episode": 4,
@@ -1383,6 +1640,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 1,
    "layout_episode": 4,
@@ -1395,6 +1653,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 2,
    "layout_episode": 14,
@@ -1407,6 +1666,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 3,
    "layout_episode": 4,
@@ -1419,6 +1679,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 4,
    "layout_episode": 14,
@@ -1431,6 +1692,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 5,
    "layout_episode": 14,
@@ -1443,6 +1705,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 6,
    "layout_episode": 14,
@@ -1455,6 +1718,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 7,
    "layout_episode": 4,
@@ -1467,6 +1731,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 8,
    "layout_episode": 14,
@@ -1479,6 +1744,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 9,
    "layout_episode": 14,
@@ -1491,6 +1757,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 10,
    "layout_episode": 4,
@@ -1503,6 +1770,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 11,
    "layout_episode": 4,
@@ -1515,6 +1783,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 12,
    "layout_episode": 4,
@@ -1527,6 +1796,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 13,
    "layout_episode": 4,
@@ -1539,6 +1809,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 14,
    "layout_episode": 14,
@@ -1551,6 +1822,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 15,
    "layout_episode": 14,
@@ -1563,6 +1835,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 16,
    "layout_episode": 4,
@@ -1575,6 +1848,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 17,
    "layout_episode": 14,
@@ -1587,6 +1861,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 18,
    "layout_episode": 4,
@@ -1599,6 +1874,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "low_light",
    "run": 19,
    "layout_episode": 14,
@@ -1611,6 +1887,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 0,
    "layout_episode": 4,
@@ -1623,6 +1900,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 1,
    "layout_episode": 4,
@@ -1635,6 +1913,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 2,
    "layout_episode": 14,
@@ -1647,6 +1926,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 3,
    "layout_episode": 4,
@@ -1659,6 +1939,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 4,
    "layout_episode": 14,
@@ -1671,6 +1952,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 5,
    "layout_episode": 14,
@@ -1683,6 +1965,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 6,
    "layout_episode": 14,
@@ -1695,6 +1978,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 7,
    "layout_episode": 4,
@@ -1707,6 +1991,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 8,
    "layout_episode": 14,
@@ -1719,6 +2004,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 9,
    "layout_episode": 14,
@@ -1731,6 +2017,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 10,
    "layout_episode": 4,
@@ -1743,6 +2030,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 11,
    "layout_episode": 4,
@@ -1755,6 +2043,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 12,
    "layout_episode": 4,
@@ -1767,6 +2056,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 13,
    "layout_episode": 4,
@@ -1779,6 +2069,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 14,
    "layout_episode": 14,
@@ -1791,6 +2082,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 15,
    "layout_episode": 14,
@@ -1803,6 +2095,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 16,
    "layout_episode": 4,
@@ -1815,6 +2108,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 17,
    "layout_episode": 14,
@@ -1827,6 +2121,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 18,
    "layout_episode": 4,
@@ -1839,6 +2134,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "warm_light",
    "run": 19,
    "layout_episode": 14,
@@ -1851,6 +2147,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 0,
    "layout_episode": 4,
@@ -1863,6 +2160,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 1,
    "layout_episode": 4,
@@ -1875,6 +2173,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 2,
    "layout_episode": 14,
@@ -1887,6 +2186,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 3,
    "layout_episode": 4,
@@ -1899,6 +2199,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 4,
    "layout_episode": 14,
@@ -1911,6 +2212,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 5,
    "layout_episode": 14,
@@ -1923,6 +2225,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 6,
    "layout_episode": 14,
@@ -1935,6 +2238,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 7,
    "layout_episode": 4,
@@ -1947,6 +2251,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 8,
    "layout_episode": 14,
@@ -1959,6 +2264,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 9,
    "layout_episode": 14,
@@ -1971,6 +2277,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 10,
    "layout_episode": 4,
@@ -1983,6 +2290,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 11,
    "layout_episode": 4,
@@ -1995,6 +2303,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 12,
    "layout_episode": 4,
@@ -2007,6 +2316,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 13,
    "layout_episode": 4,
@@ -2019,6 +2329,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 14,
    "layout_episode": 14,
@@ -2031,6 +2342,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 15,
    "layout_episode": 14,
@@ -2043,6 +2355,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 16,
    "layout_episode": 4,
@@ -2055,6 +2368,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 17,
    "layout_episode": 14,
@@ -2067,6 +2381,7 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
    "test": "extra_objects",
    "run": 18,
    "layout_episode": 4,
@@ -2079,6 +2394,1047 @@
   },
   {
    "trained_on": "all seven",
+   "steps": 30000,
+   "test": "extra_objects",
+   "run": 19,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0043,
+    -0.3645
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 0,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0218,
+    -0.1679
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 1,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0171,
+    -0.1704
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 2,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0179,
+    -0.3684
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 3,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0349,
+    -0.1571
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 4,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0011,
+    -0.3652
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 5,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0006,
+    -0.3508
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 6,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0106,
+    -0.3556
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 7,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0249,
+    -0.1638
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 8,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0178,
+    -0.3635
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 9,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0087,
+    -0.3678
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 10,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0261,
+    -0.161
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 11,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0307,
+    -0.1677
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 12,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.023,
+    -0.1702
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 13,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0262,
+    -0.166
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 14,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0074,
+    -0.3647
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 15,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0151,
+    -0.3693
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 16,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0241,
+    -0.171
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 17,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0014,
+    -0.3661
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 18,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0268,
+    -0.1669
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "normal",
+   "run": 19,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0043,
+    -0.3645
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 0,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0218,
+    -0.1679
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 1,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0171,
+    -0.1704
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 2,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0179,
+    -0.3684
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 3,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0349,
+    -0.1571
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 4,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0011,
+    -0.3652
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 5,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0006,
+    -0.3508
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 6,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0106,
+    -0.3556
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 7,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0249,
+    -0.1638
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 8,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0178,
+    -0.3635
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 9,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0087,
+    -0.3678
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 10,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0261,
+    -0.161
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 11,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0307,
+    -0.1677
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 12,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.023,
+    -0.1702
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 13,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0262,
+    -0.166
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 14,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0074,
+    -0.3647
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 15,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0151,
+    -0.3693
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 16,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0241,
+    -0.171
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 17,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0014,
+    -0.3661
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 18,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0268,
+    -0.1669
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "low_light",
+   "run": 19,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0043,
+    -0.3645
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 0,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0218,
+    -0.1679
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 1,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0171,
+    -0.1704
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 2,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0179,
+    -0.3684
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 3,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0349,
+    -0.1571
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 4,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0011,
+    -0.3652
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 5,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0006,
+    -0.3508
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 6,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0106,
+    -0.3556
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 7,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0249,
+    -0.1638
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 8,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0178,
+    -0.3635
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 9,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0087,
+    -0.3678
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 10,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0261,
+    -0.161
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 11,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0307,
+    -0.1677
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 12,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.023,
+    -0.1702
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 13,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0262,
+    -0.166
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 14,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0074,
+    -0.3647
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 15,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0151,
+    -0.3693
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 16,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0241,
+    -0.171
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 17,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0014,
+    -0.3661
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 18,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0268,
+    -0.1669
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "warm_light",
+   "run": 19,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0043,
+    -0.3645
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 0,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0218,
+    -0.1679
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 1,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0171,
+    -0.1704
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 2,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0179,
+    -0.3684
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 3,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0349,
+    -0.1571
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 4,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0011,
+    -0.3652
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 5,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0006,
+    -0.3508
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 6,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0106,
+    -0.3556
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 7,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0249,
+    -0.1638
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 8,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0178,
+    -0.3635
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 9,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0087,
+    -0.3678
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 10,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0261,
+    -0.161
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 11,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0307,
+    -0.1677
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 12,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.023,
+    -0.1702
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 13,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0262,
+    -0.166
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 14,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0074,
+    -0.3647
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 15,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    0.0151,
+    -0.3693
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 16,
+   "layout_episode": 4,
+   "placed": true,
+   "miss": null,
+   "cup_start_xy_m": [
+    -0.0241,
+    -0.171
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 17,
+   "layout_episode": 14,
+   "placed": false,
+   "miss": "never lifted the cup",
+   "cup_start_xy_m": [
+    -0.0014,
+    -0.3661
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
+   "test": "extra_objects",
+   "run": 18,
+   "layout_episode": 4,
+   "placed": false,
+   "miss": "lifted the cup, not in the tray at the end",
+   "cup_start_xy_m": [
+    -0.0268,
+    -0.1669
+   ]
+  },
+  {
+   "trained_on": "all seven",
+   "steps": 90000,
    "test": "extra_objects",
    "run": 19,
    "layout_episode": 14,
