@@ -7,7 +7,7 @@ Seven datasets that replay Trossen Robotics' public `bin_picking` recordings on 
 | | |
 | --- | --- |
 | Datasets | 7 looks, 92 episodes each, LeRobot v3.0 |
-| Policies | ACT for the cup, trained on its 17 training episodes in `baseline` and on the same 17 in all seven datasets (119), for 30,000 and 90,000 steps each. For reference, one trained on the 18 real recordings for 30,000 steps |
+| Policies | ACT for the cup, trained on its 17 training episodes in `baseline` and on the same 17 in all seven datasets (119), for 30,000 and 90,000 steps each. For reference, one trained on the 18 real recordings for 30,000 steps. The four trained on the datasets used the earlier renders and are being trained again on the current ones |
 | Placed of 20 on the held-out cup layouts: room light, low light, warm light, extra objects | Real recordings: 10, 8, 8 and 7. `baseline`: 5, 0, 0 and 7 at 30,000 steps, 8, 3, 5 and 10 at 90,000. All seven: 2, 0, 3 and 1 at 30,000 steps, 2, 3, 1 and 3 at 90,000 |
 | By layout | Every placement is on the layout where the left arm picks the cup up. No policy placed it on the right arm's layout, the one trained on real recordings included |
 
@@ -16,6 +16,8 @@ Seven datasets that replay Trossen Robotics' public `bin_picking` recordings on 
 Each episode follows one recording. The joint states, actions, timing and task text are the recording's, unchanged, and the four cameras are rendered from the real cameras' viewpoints. In 92 of the 99 recordings we could check, the object ends up where it did in the recording, in the tray or not. The datasets leave out the 7 that don't, plus source episode 66, which wasn't rendered, so each one has 92 episodes.
 
 [Watch all seven playing together](docs/preview.mp4) on the overhead camera, and [the same episode from all four cameras](docs/cameras.mp4) in `baseline`.
+
+On 22 November 2026 all seven were rendered again with a new desk and walls. The desk had been a photo stitched from the recording cameras, with the arms' shadows baked in, and the walls carried a strip of the real desk that looked like a second, lower desk behind the simulated one. The episodes, joint data and splits are unchanged.
 
 | Dataset | What it changes | Episodes |
 | --- | --- | --- |
@@ -42,6 +44,8 @@ All seven are LeRobot v3.0 at 30 fps, with the same keys, robot type (`bi_widowx
 Training episodes come first, then 8 held-out test episodes (source episodes 4, 14, 27, 42, 60, 61, 90 and 96), and `splits` in `meta/info.json` gives the two ranges. `meta/provenance.json` lists each episode's source episode, object, whether it has a handover, and whether the object ended in the tray in the recording and in the replay.
 
 ## Training
+
+The four policies trained on the datasets were trained and tested on the earlier renders, before the new desk. They are being trained again on the current datasets, with the same episodes, settings and tests, and this section and the next will be updated with the results.
 
 ACT doesn't read the instruction, so each policy is trained for one object, the cup. From the four cameras and the 14 joint positions it outputs 14 joint targets, 100 steps at a time.
 
@@ -112,7 +116,6 @@ All the numbers in this section, run by run, are in [`policy/results/SUMMARY.md`
 - Only the arms and the object being picked up move in the datasets. The other objects stay where they start, so an object the real arm bumps or knocks over stays put here. About 1 in 20 of those objects may start somewhere other than where it was in the recording.
 - In the datasets, the gripper's fingers close until they touch the object. The object is then held rigidly until it's let go, and falls under simulated physics, so how it settles in the tray can differ from the recording.
 - In about 3 in 100 frames where an object is held, a finger sinks more than 3 mm into it, most often into the roll of tape.
-- In two renders the clear tray turns solid black for a moment: frames 139 to 166 of episode 75 in `warm` (source episode 89), and 3 frames between 223 and 282 of episode 83 in `fluorescent` (source episode 99).
 - The cables bend with the arms but don't swing.
 - Two of the recordings (source episodes 69 and 74) are failed attempts, and they stay failed here. `in_tray_recorded` in `meta/provenance.json` marks them.
 - The policies were tested on two layouts, 20 runs per test, so the intervals are wide. They are cup-only and were trained on 17 or 18 recordings.
