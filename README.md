@@ -7,8 +7,8 @@ Seven datasets that replay Trossen Robotics' public `bin_picking` recordings on 
 | | |
 | --- | --- |
 | Datasets | 7 looks, 92 episodes each, LeRobot v3.0 |
-| Policies | ACT for the cup, trained on its 17 training episodes in `baseline` and on the same 17 in all seven datasets (119), for 30,000 and 90,000 steps each. For reference, one trained on the 18 real recordings for 30,000 steps. The four trained on the datasets used the earlier renders and are being trained again on the current ones |
-| Placed of 20 on the held-out cup layouts: room light, low light, warm light, extra objects | Real recordings: 10, 8, 8 and 7. `baseline`: 5, 0, 0 and 7 at 30,000 steps, 8, 3, 5 and 10 at 90,000. All seven: 2, 0, 3 and 1 at 30,000 steps, 2, 3, 1 and 3 at 90,000 |
+| Policies | ACT for the cup, trained on its 17 training episodes in `baseline` and on the same 17 in all seven datasets (119), for 30,000 and 90,000 steps each. For reference, one trained on the 18 real recordings for 30,000 steps |
+| Placed of 20 on the held-out cup layouts: room light, low light, warm light, extra objects | All seven: 10, 10, 10 and 10 at 30,000 steps, 9, 10, 9 and 8 at 90,000. Real recordings: 10, 8, 8 and 7. `baseline`: 0, 0, 0 and 0 at 30,000 steps, 8, 2, 0 and 6 at 90,000 |
 | By layout | Every placement is on the layout where the left arm picks the cup up. No policy placed it on the right arm's layout, the one trained on real recordings included |
 
 ## Datasets
@@ -45,13 +45,13 @@ Training episodes come first, then 8 held-out test episodes (source episodes 4, 
 
 ## Training
 
-The four policies trained on the datasets were trained and tested on the earlier renders, before the new desk. They are being trained again on the current datasets, with the same episodes, settings and tests, and this section and the next will be updated with the results.
+The four policies trained on the datasets were trained on the current renders, with the new desk. Policies trained on the earlier renders are covered at the end of the next section.
 
 ACT doesn't read the instruction, so each policy is trained for one object, the cup. From the four cameras and the 14 joint positions it outputs 14 joint targets, 100 steps at a time.
 
 - Data: the 17 cup episodes of the training split. The `baseline` policies have them in `baseline` only (6,867 frames). The all-seven policies have the same 17 episodes in each of the seven datasets (119 episodes, 48,069 frames). The reference policy has the 18 real cup recordings outside the test split, as recorded (7,318 frames): the same 17 plus source episode 17, which the datasets leave out.
-- Runs: batch 8 on one A100 each, with the same settings except the number of steps. 30,000 steps took about 78 minutes on the datasets and 1 hour 50 minutes on the real recordings; 90,000 steps took about 4 hours. So at the same number of steps an all-seven policy sees each episode a seventh as often as a `baseline` one. Over their runs the `baseline` policies went through their data about 35 and 105 times, the all-seven policies about 5 and 15 times, and the real-data policy about 33 times.
-- Weights, each run's last checkpoint: [`kiteml/trossen-bin-picking-sim-act-cup-baseline`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-baseline) and [`kiteml/trossen-bin-picking-sim-act-cup-baseline-90k`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-baseline-90k), [`kiteml/trossen-bin-picking-sim-act-cup-all`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-all) and [`kiteml/trossen-bin-picking-sim-act-cup-all-90k`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-all-90k) (30,000 and 90,000 steps), and [`kiteml/trossen-bin-picking-act-cup-real`](https://huggingface.co/kiteml/trossen-bin-picking-act-cup-real). They load with LeRobot 0.6 or later.
+- Runs: batch 8 on one A100 each, with the same settings except the number of steps. 30,000 steps took about 90 minutes on the datasets and 1 hour 50 minutes on the real recordings; 90,000 steps took about 4 hours. So at the same number of steps an all-seven policy sees each episode a seventh as often as a `baseline` one. Over their runs the `baseline` policies went through their data about 35 and 105 times, the all-seven policies about 5 and 15 times, and the real-data policy about 33 times.
+- Weights, each run's last checkpoint: [`kiteml/trossen-bin-picking-sim-act-cup-baseline`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-baseline) and [`kiteml/trossen-bin-picking-sim-act-cup-baseline-90k`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-baseline-90k), [`kiteml/trossen-bin-picking-sim-act-cup-all`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-all) and [`kiteml/trossen-bin-picking-sim-act-cup-all-90k`](https://huggingface.co/kiteml/trossen-bin-picking-sim-act-cup-all-90k) (30,000 and 90,000 steps), and [`kiteml/trossen-bin-picking-act-cup-real`](https://huggingface.co/kiteml/trossen-bin-picking-act-cup-real). They load with LeRobot 0.6 or later. On 24 November 2026 the four trained on the datasets were replaced with the ones trained on the current renders.
 
 ## Evaluation
 
@@ -65,42 +65,44 @@ ACT doesn't read the instruction, so each policy is trained for one object, the 
 
 | Test | Real recordings, 30,000 steps | `baseline`, 30,000 steps | `baseline`, 90,000 steps | All seven, 30,000 steps | All seven, 90,000 steps |
 | --- | --- | --- | --- | --- | --- |
-| Room light | 10/20 (50%, 30–70%) | 5/20 (25%, 11–47%) | 8/20 (40%, 22–61%) | 2/20 (10%, 3–30%) | 2/20 (10%, 3–30%) |
-| Low light | 8/20 (40%, 22–61%) | 0/20 (0%, 0–16%) | 3/20 (15%, 5–36%) | 0/20 (0%, 0–16%) | 3/20 (15%, 5–36%) |
-| Warm light | 8/20 (40%, 22–61%) | 0/20 (0%, 0–16%) | 5/20 (25%, 11–47%) | 3/20 (15%, 5–36%) | 1/20 (5%, 1–24%) |
-| Extra objects | 7/20 (35%, 18–57%) | 7/20 (35%, 18–57%) | 10/20 (50%, 30–70%) | 1/20 (5%, 1–24%) | 3/20 (15%, 5–36%) |
-| All four | 33/80 | 12/80 | 26/80 | 6/80 | 9/80 |
+| Room light | 10/20 (50%, 30–70%) | 0/20 (0%, 0–16%) | 8/20 (40%, 22–61%) | 10/20 (50%, 30–70%) | 9/20 (45%, 26–66%) |
+| Low light | 8/20 (40%, 22–61%) | 0/20 (0%, 0–16%) | 2/20 (10%, 3–30%) | 10/20 (50%, 30–70%) | 10/20 (50%, 30–70%) |
+| Warm light | 8/20 (40%, 22–61%) | 0/20 (0%, 0–16%) | 0/20 (0%, 0–16%) | 10/20 (50%, 30–70%) | 9/20 (45%, 26–66%) |
+| Extra objects | 7/20 (35%, 18–57%) | 0/20 (0%, 0–16%) | 6/20 (30%, 14–52%) | 10/20 (50%, 30–70%) | 8/20 (40%, 22–61%) |
+| All four | 33/80 | 0/80 | 16/80 | 40/80 | 36/80 |
 
 The same starts, run by run: how many only the first policy placed / only the second.
 
-| Test | Real recordings / `baseline` at 90,000 steps | `baseline`: 30,000 / 90,000 steps | `baseline` / all seven at 90,000 steps | `baseline` / all seven at 30,000 steps |
+| Test | Real recordings / all seven at 30,000 steps | `baseline` / all seven at 30,000 steps | `baseline` / all seven at 90,000 steps | All seven: 30,000 / 90,000 steps |
 | --- | --- | --- | --- | --- |
-| Room light | 2 / 0 | 1 / 4 (p = 0.38) | 6 / 0 (p = 0.03) | 5 / 2 (p = 0.45) |
-| Low light | 6 / 1 (p = 0.13) | 0 / 3 (p = 0.25) | 3 / 3 | 0 / 0 |
-| Warm light | 4 / 1 (p = 0.38) | 0 / 5 (p = 0.06) | 5 / 1 (p = 0.22) | 0 / 3 (p = 0.25) |
-| Extra objects | 0 / 3 (p = 0.25) | 0 / 3 (p = 0.25) | 7 / 0 (p = 0.02) | 6 / 0 (p = 0.03) |
-| All four | 12 / 5 (p = 0.14) | 1 / 15 (p < 0.001) | 21 / 4 (p < 0.001) | 11 / 5 (p = 0.21) |
+| Room light | 0 / 0 | 0 / 10 (p = 0.002) | 0 / 1 | 1 / 0 |
+| Low light | 0 / 2 | 0 / 10 (p = 0.002) | 0 / 8 (p = 0.008) | 0 / 0 |
+| Warm light | 0 / 2 | 0 / 10 (p = 0.002) | 0 / 9 (p = 0.004) | 1 / 0 |
+| Extra objects | 0 / 3 (p = 0.25) | 0 / 10 (p = 0.002) | 0 / 2 | 2 / 0 |
+| All four | 0 / 7 (p = 0.016) | 0 / 40 (p < 0.001) | 0 / 20 (p < 0.001) | 4 / 0 (p = 0.13) |
 
 The intervals are 95% Wilson intervals and the p-values exact McNemar tests on the runs only one of the two policies placed.
 
-All 86 placements are on the left arm's layout. On the right arm's layout no policy placed the cup in any test, and 6 of its 200 runs lifted it, 5 of them by the real-data policy. Of the 314 misses, 268 never lifted the cup and 46 lifted it but it didn't end in the tray.
+All 125 placements are on the left arm's layout. On the right arm's layout no policy placed the cup in any test, and 7 of its 200 runs lifted it, 5 by the real-data policy and 2 by the 30,000-step all-seven policy. Of the 275 misses, 231 never lifted the cup and 44 lifted it but it didn't end in the tray.
 
-The policy trained on the real recordings placed the cup most often, 33 times in 80 runs, and changed light hurt it least: 8 of 20 in low light and in warm light, against 10 under room light. It is also the policy the test images favour, as explained above.
+The two policies trained on all seven datasets placed the cup most often, 40 of 80 at 30,000 steps and 36 at 90,000, and changed light didn't hurt them. At 30,000 steps the policy placed the cup in every run on the left arm's layout, 10 of 10 in each test. At 90,000 steps it lifted the cup in all 40 runs there and placed it in 36. Training three times longer added nothing: on the same starts, 4 runs were placed only by the 30,000-step policy and none only by the 90,000-step one.
 
-Of the policies trained on the datasets, `baseline` at 90,000 steps did best, 26 of 80. Under room light and with the extra objects it placed the cup about as often as the real-data policy (8 and 10 of 20, against 10 and 7), and in changed light less often (3 and 5, against 8 and 8). Training three times longer helped it in every test: on the same starts, the 90,000-step policy placed the cup 15 times where the 30,000-step one didn't, and the reverse happened once.
+The policy trained on the real recordings placed the cup 33 times in 80 runs: 10 of 20 under room light and 7 or 8 in the other tests. On the same starts, the 30,000-step all-seven policy placed the cup in every run the real-data policy did, and in 7 more (p = 0.016), though the test images favour the real-data policy, as explained above.
 
-Training on all seven datasets did worse than `baseline` alone at both lengths, 6 and 9 of 80 against 12 and 26. It didn't do better in low or warm light either, though dim, very dim and warm light are among the looks it trained on. Two things may explain it, and we haven't separated them: at the same number of steps it sees each episode a seventh as often, and the lighting it learned from is the datasets' renders, while the tests use the simulator's own renderer.
+The `baseline` policies did worst. At 30,000 steps the policy lifted the cup in 28 runs and never got it into the tray. At 90,000 steps it placed it 16 times: 8 under room light and 6 with the extra objects, close to the real-data policy, but 2 in low light and none in warm light. On the same starts, the all-seven policy placed the cup where `baseline` didn't 40 times at 30,000 steps and 20 times at 90,000, and the reverse never happened.
 
-The policies trained on the datasets also turned out to be sensitive to how the cables are drawn. An earlier version of this report tested on a simulator whose wrist-camera cables were fixed hooks, unlike the datasets'. With cables that follow the datasets', the real-data policy's results moved by at most one run per test (34 to 33 of 80 in all), while the 90,000-step all-seven policy's fell from 18 to 9, and from 8 to 2 under room light, and the 30,000-step `baseline` policy's from 18 to 12. That version also concluded that training longer closed the gap between all seven and `baseline`. With the cables fixed and `baseline` also trained for 90,000 steps, it doesn't.
+So with the same 17 episodes, training on all seven looks instead of `baseline` alone made the policy place the cup far more often, at both lengths, and kept it working in low and warm light, where the `baseline` policies mostly failed.
 
-The same start under room light, and another with the extra objects, for the two 90,000-step policies trained on the datasets:
+Earlier versions of this report tested the same four policies trained on the earlier renders, before the new desk, and found the opposite: `baseline` placed the cup 12 and 26 times of 80 at 30,000 and 90,000 steps, all seven 6 and 9. The two rounds used the same training episodes and settings, and the same tests and starts. Those earlier policies were also sensitive to how the cables are drawn: on a simulator whose wrist-camera cables were fixed hooks, unlike the datasets', the 90,000-step all-seven policy placed the cup 18 times instead of 9 and the 30,000-step `baseline` policy 18 instead of 12, while the real-data policy's results moved by one run, 34 to 33.
+
+The same start under room light for the two 30,000-step policies trained on the datasets, and another with the extra objects for the two 90,000-step ones:
 
 | | |
 | :---: | :---: |
-| ![The baseline policy places the cup](policy/gifs/baseline_90k_room_light_placed.gif) | ![The all-seven policy lifts the cup and misses the tray](policy/gifs/all_seven_90k_room_light_dropped.gif) |
-| Trained on `baseline`, room light: placed | Trained on all seven, room light: lifted, not in the tray |
-| ![The baseline policy places the cup among the extra objects](policy/gifs/baseline_90k_extra_objects_placed.gif) | ![The all-seven policy never lifts the cup](policy/gifs/all_seven_90k_extra_objects_missed.gif) |
-| Trained on `baseline`, extra objects: placed | Trained on all seven, extra objects: never lifts the cup |
+| ![The baseline policy lifts the cup and drops it beside the tray](policy/gifs/baseline_30k_room_light_dropped.gif) | ![The all-seven policy places the cup](policy/gifs/all_seven_30k_room_light_placed.gif) |
+| Trained on `baseline`, 30,000 steps, room light: lifts the cup and drops it beside the tray | Trained on all seven, 30,000 steps, room light: placed |
+| ![The baseline policy never lifts the cup](policy/gifs/baseline_90k_extra_objects_missed.gif) | ![The all-seven policy places the cup among the extra objects](policy/gifs/all_seven_90k_extra_objects_placed.gif) |
+| Trained on `baseline`, 90,000 steps, extra objects: never lifts the cup | Trained on all seven, 90,000 steps, extra objects: placed |
 
 The policy trained on the real recordings:
 
